@@ -24,6 +24,10 @@ public class ConfigurationSingletonTest {
         MemberRepository memberRepository1 = memberService.getMemberRepository();
         MemberRepository memberRepository2 = orderService.getMemberRepository();
 
+        // 모두 같은 인스턴스를 참조하고 있다
+        // AppConfig에 @Configuration을 지우면 모두 다른 인스턴스를 참조하게 된다.
+        // 즉 @Bean만 사용해도 스프링 빈으로 등록이 되지만 싱글톤이 보장되지 않는다
+        // 스프링 설정정보는 엔간하면 @Configuration를 사용하자.
         System.out.println("memberService -> memberRepository = " + memberRepository1);
         System.out.println("orderService -> memberRepository = " + memberRepository2);
         System.out.println("memberRepository = " + memberRepository);
