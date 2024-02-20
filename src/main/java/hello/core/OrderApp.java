@@ -18,6 +18,7 @@ public class OrderApp {
 //        OrderService orderService = appConfig.orderService();
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        // AppConfig.class로 구성정보 지정
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
         OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
 
