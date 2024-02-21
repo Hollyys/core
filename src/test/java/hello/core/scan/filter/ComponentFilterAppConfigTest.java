@@ -30,7 +30,9 @@ public class ComponentFilterAppConfigTest {
     @Configuration
     @ComponentScan(
             includeFilters = @Filter(type = FilterType.ANNOTATION, classes = MyIncludeComponent.class),
+            // @MyIncludeComponent가 추가된 BeanA는 스프링 빈에 등록됨
             excludeFilters = @Filter(type = FilterType.ANNOTATION, classes = MyExcludeComponent.class)
+            // @MyExcludeComponent가 추가된 BeanB는 스프링 빈에 등록되지 않음
             // type = FilterType.ANNOTATION 은 기본값이라 생략 가능
     )
     static class ComponentFilterAppConfig{
