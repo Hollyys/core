@@ -24,16 +24,14 @@ public class AutoWiredTest {
             System.out.println("noBean1 = " + noBean1);
         }
 
-        @Autowired
-        // 호출은 되되, null로 호출됨
+        @Autowired // 호출은 되되, null로 호출됨
         public void setNoBean2(@Nullable Member noBean2){
-            System.out.println("noBean1 = " + noBean2);
+            System.out.println("noBean2 = " + noBean2);
         }
 
-        @Autowired
-        // Optional에 감싸져서 호출
+        @Autowired // Optional에 감싸져서 호출
         public void setNoBean3(Optional<Member> noBean3){
-            System.out.println("noBean1 = " + noBean3);
+            System.out.println("noBean3 = " + noBean3);
         }
 
     }

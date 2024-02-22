@@ -19,10 +19,12 @@ public class AllBeanTest {
     @Test
     void findAllBean(){
         ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class,DiscountService.class);
+        // 1. 스프링 컨테이너 생성
+        // 2. `AutoAppConfig.class`, `DiscountService.class`를 파라미터로 넘기면서 해당 클래스를 자동으로 스프링 빈으로 등록
 
         DiscountService discountService = ac.getBean(DiscountService.class);
         Member member = new Member(1L, "userA", Grade.VIP);
-        int discountPrice = discountService.discount(member, 10000, "fixDiscountPolicy");
+        int discountPrice = discountService.discount(member, 20000, "fixDiscountPolicy");
 
         assertThat(discountService).isInstanceOf(DiscountService.class);
         assertThat(discountPrice).isEqualTo(1000);
@@ -35,7 +37,6 @@ public class AllBeanTest {
         private final Map<String, DiscountPolicy> policyMap;
         private final List<DiscountPolicy> polices;
 
-        @Autowired
         public DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> polices) {
             this.policyMap = policyMap;
             this.polices = polices;

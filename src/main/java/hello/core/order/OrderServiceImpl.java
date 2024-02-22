@@ -13,7 +13,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-//@RequiredArgsConstructor // 롬복이 생성자를 자동으로 만들어줌 (코드에는 안 드러나지만 추가가 되어있음)
+//@RequiredArgsConstructor
+// 롬복이 final이 붙은 필드를 모아서 생성자를 자동으로 만들어줌 (코드에는 안 드러나지만 추가가 되어있음)
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
